@@ -6,6 +6,7 @@ antariweather.controller('homeController', ['$scope', '$location', 'cityService'
     navigator.geolocation.getCurrentPosition(function(position){
       $scope.$apply(function(){
         $scope.position = position;
+        console.log(position);
       });
     });
  	}
