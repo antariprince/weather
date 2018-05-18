@@ -1,6 +1,9 @@
 // CONTROLLERS
 antariweather.controller('homeController', ['$scope', '$location', 'cityService', 'geolocationSvc', function($scope, $location, cityService, geolocationSvc){
-	geolocationSvc.getCurrentPosition().then(onUserLocationFound);
+	geolocationSvc.getCurrentPosition().then(function(){
+		console.log('location found');
+		console.log(geolocationSvc);
+	});
 	$scope.city = cityService.city;
 
 	$scope.$watch('city', function(){
