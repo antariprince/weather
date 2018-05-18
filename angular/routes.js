@@ -11,6 +11,10 @@ antariweather.config(function($routeProvider){
 		templateUrl: 'pages/forecast.htm',
 		controller: 'forecastController'
 	})
+	.when('/mylocation',{
+		templateUrl: 'pages/forecast.htm',
+		controller: 'myLocController'
+	})
 	.when('/forecast/:days',{
 		templateUrl: 'pages/forecast.htm',
 		controller: 'forecastController'
