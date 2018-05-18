@@ -19,14 +19,14 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
 		longitude:-73.935242
  	}
 
-	if(navigator.geolocation) {
+	//if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
       $scope.$apply(function(){
         $scope.position.latitude = position.coords.latitude;
         $scope.position.longitude = position.coords.longitude;
       });
     });
- 	}
+ 	//}
 
  	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
  
