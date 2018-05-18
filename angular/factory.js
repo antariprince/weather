@@ -17,7 +17,7 @@ antariweather.factory('geolocationSvc', ['$q', '$window', function ($q, $window)
                 });
         }
 
-        return deferred;
+        return deferred.promise;
     }
 
     return {
