@@ -1121,7 +1121,14 @@ form textarea {
       display: inline-block;
       vertical-align: middle; }
     .site-header .branding .logo {
-      margin-right: 10px; }
+      margin-right: 10px; 
+
+      width: 100%;
+      max-width: 79px;
+      min-width: 59px;
+      height: auto;
+
+    }
     .site-header .branding .site-title {
       margin-bottom: 5px;
       font-size: 16px;
@@ -1289,7 +1296,14 @@ form textarea {
       text-align: center;
       font-weight: 400; }
     .forecast-container .forecast .forecast-icon {
-      height: 50px; }
+      height: 50px; 
+    }
+    .forecast-container .forecast .forecast-icon .icon-responsive{
+      width: 100%;
+      max-width: 49px;
+      min-width: 29px;
+      height: auto;
+    }
     .forecast-container .forecast .forecast-content {
       padding: 50px 20px 10px;
       text-align: center; }

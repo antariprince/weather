@@ -1,6 +1,6 @@
 // CONTROLLERS
-antariweather.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService){
-
+antariweather.controller('homeController', ['$scope', '$location', 'cityService', 'geolocationSvc', function($scope, $location, cityService, geolocationSvc){
+	geolocationSvc.getCurrentPosition().then(onUserLocationFound);
 	$scope.city = cityService.city;
 
 	$scope.$watch('city', function(){
@@ -13,8 +13,9 @@ antariweather.controller('homeController', ['$scope', '$location', 'cityService'
 }]);
 
 antariweather.controller('forecastController', ['$scope', "$routeParams",'cityService', 'weatherService', function($scope, $routeParams, cityService, weatherService){
+	
 	$scope.city = cityService.city;
-	$scope.days = $routeParams.days || '5';
+	$scope.days = $routeParams.days || '7';
 	
 	$scope.weatherResult = weatherService.GetWeather($scope.city, $scope.days);
 	$scope.convertToCelsius = function(degK){
