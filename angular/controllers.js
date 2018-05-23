@@ -19,23 +19,22 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
 		longitude:-73.935242
  	}
 
-	//if(navigator.geolocation) {
+	if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
       $scope.$apply(function(){
         $scope.position.latitude = position.coords.latitude;
         $scope.position.longitude = position.coords.longitude;
       });
     });
- 	//}
+ 	
 
 
  	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
  
 	var myLocation = geolocation.$promise.then(function(data){
-		console.log(data);
+
 		if(data.status === "OK"){
 			$scope.weatherResult = weatherService.GetWeather(data.results[0].address_components[0].long_name, $scope.days);
-			$scope.city = data.results[0].address_components[0].long_name;
 		}
 		else{
 			$scope.weatherResult = weatherService.GetWeather(cityService.city, $scope.days);
