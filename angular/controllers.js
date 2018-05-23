@@ -39,11 +39,6 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
 		}
 	});
 
-	$scope.$watch('city',function(){
-		cityService.city = $scope.city;
-		$scope.weatherResult = weatherService.GetWeather(cityService.city, $scope.days);
-	});
-
 	$scope.days = $routeParams.days || '7';
 	
 	$scope.convertToCelsius = function(degK){
