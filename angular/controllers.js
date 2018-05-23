@@ -13,7 +13,7 @@ antariweather.controller('homeController', ['$scope', '$location', 'cityService'
 }]);
 
 antariweather.controller('myLocController', ['$scope', "$routeParams",'cityService', 'weatherService', 'geoService', function($scope, $routeParams, cityService, weatherService, geoService){
-
+	$scope.position = {};
 	if(navigator.geolocation) {
 		$scope.position.latitude = 40.730610;
 		$scope.position.longitude = -73.935242;
