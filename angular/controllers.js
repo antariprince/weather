@@ -26,7 +26,8 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
         $scope.position.longitude = position.coords.longitude;
       });
     })};
- 	
+
+ 	console.log($scope.position);
 
 
  	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
