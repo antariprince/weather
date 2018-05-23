@@ -14,13 +14,15 @@ antariweather.controller('homeController', ['$scope', '$location', 'cityService'
 
 antariweather.controller('myLocController', ['$scope', "$routeParams",'cityService', 'weatherService', 'geoService', function($scope, $routeParams, cityService, weatherService, geoService){
 
-	//if(navigator.geolocation) {
+	if(navigator.geolocation) {
+		$scope.position.latitude = 40.730610;
+		$scope.position.longitude = -73.935242;
     navigator.geolocation.getCurrentPosition(function(position){
       $scope.$apply(function(){
-        $scope.position.latitude = position.coords.latitude || 40.730610;
-        $scope.position.longitude = position.coords.longitude || -73.935242;
+        $scope.position.latitude = position.coords.latitude;
+        $scope.position.longitude = position.coords.longitude;
       });
-    });
+    })};
 
  	console.log($scope.position);
 
