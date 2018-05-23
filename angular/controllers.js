@@ -25,7 +25,7 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
         $scope.position.latitude = position.coords.latitude;
         $scope.position.longitude = position.coords.longitude;
       });
-    });
+    })};
  	
 
 
