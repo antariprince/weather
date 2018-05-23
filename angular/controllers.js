@@ -32,8 +32,10 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
  	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
  
 	var myLocation = geolocation.$promise.then(function(data){
+		console.log(data);
 		if(data.status === "OK"){
 			$scope.weatherResult = weatherService.GetWeather(data.results[0].address_components[0].long_name, $scope.days);
+			$scope.city = data.results[0].address_components[0].long_name;
 		}
 		else{
 			$scope.weatherResult = weatherService.GetWeather(cityService.city, $scope.days);
@@ -87,12 +89,12 @@ antariweather.controller('myLocController', ['$scope', "$routeParams",'cityServi
  // 		longitude:120.94050569999997
  // 	}
 
- 	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
+ // 	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
  
-	geolocation.$promise.then(function(data){
-			$scope.city = data.results[0].address_components[0].long_name;
-	});
-	console.log($scope.city);
+	// geolocation.$promise.then(function(data){
+	// 		$scope.city = data.results[0].address_components[0].long_name;
+	// });
+
 	// $scope.city = cityService.city;
 
 	// $scope.$watch('city', function(){
