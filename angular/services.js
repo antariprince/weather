@@ -7,7 +7,7 @@ antariweather.service('cityService',function(){
 antariweather.service('geoService',['$resource', function($resource){
 	this.GetCity = function(lat,lon){
 		var geoApi = $resource("https://maps.googleapis.com/maps/api/geocode/json");
-	return geoApi.get({ latlng: lat+','+lon, location_type: 'APPROXIMATE', result_type: "administrative_area_level_1", key: "AIzaSyAq_ocXnml-Jwuon9WF0OcJpZCHqiF1l1Q" });
+	return geoApi.get({ latlng: lat+','+lon, location_type: 'APPROXIMATE', result_type: "locality", key: "AIzaSyAq_ocXnml-Jwuon9WF0OcJpZCHqiF1l1Q" });
 	}
 }]);
 

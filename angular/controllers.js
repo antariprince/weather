@@ -15,22 +15,23 @@ antariweather.controller('homeController', ['$scope', '$location', 'cityService'
 antariweather.controller('myLocController', ['$scope', "$routeParams",'cityService', 'weatherService', 'geoService', function($scope, $routeParams, cityService, weatherService, geoService){
 
 	$scope.position = {
-		latitude:40.730610,
-		longitude:-73.935242
+		latitude:14.599512,
+		longitude:120.984222
  	}
 
-	//if(navigator.geolocation) {
+	if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
       $scope.$apply(function(){
         $scope.position.latitude = position.coords.latitude;
         $scope.position.longitude = position.coords.longitude;
       });
     });
- 	//}
+ 	}
 
  	var geolocation = geoService.GetCity($scope.position.latitude, $scope.position.longitude);
  
 	var myLocation = geolocation.$promise.then(function(data){
+		console.log(data);
 		if(data.status === "OK"){
 			$scope.weatherResult = weatherService.GetWeather(data.results[0].address_components[0].long_name, $scope.days);
 		}
